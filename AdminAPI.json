@@ -1,0 +1,1931 @@
+{
+	"info": {
+		"_postman_id": "a00ecea0-3293-45b3-9b77-238433f36369",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "A User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/{userid}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users",
+								"{userid}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in My Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": null,
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in My Account (With Tags)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/users/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User in My Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"string\",\r\n    \"userId\": \"string\",\r\n    \"uniqueUserId\": \"string\",\r\n    \"email\": \"string\",\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"password\": \"string\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"source\": \"APP\",\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"email\": \"string\",\r\n    \"role\": \"GLOBAL_ADMIN\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/users/{userID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"{userID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/users/{userID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"{userID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in Specified Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": null,
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in Specified Account (With Tags)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User in Specified Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"string\",\r\n    \"uniqueUserId\": \"string\",\r\n    \"email\": \"string\",\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"password\": \"string\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"source\": \"APP\",\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"email\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}}/users/{userID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}}",
+								"users",
+								"{userID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/{userID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users",
+								"{userID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "An Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accounts with Tags",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"partnerId\": \"string\",\r\n    \"accountId\": \"string\",\r\n    \"name\": \"string\",\r\n    \"domain\": \"string\",\r\n    \"workDomain\": \"string\",\r\n    \"topLevelDomain\": [\r\n        \"string\"\r\n    ],\r\n    \"accessTokenExpiryHours\": 0,\r\n    \"refreshTokenExpiryHours\": 0,\r\n    \"active\": true,\r\n    \"state\": \"active\",\r\n    \"authProvider\": \"CLOUD_LINK\",\r\n    \"authProviderUrl\": \"string\",\r\n    \"tags\": {},\r\n    \"passwordPolicy\": \"string\",\r\n    \"location\": {\r\n        \"address\": {},\r\n        \"coords\": {},\r\n        \"timezone\": \"America/Montreal\"\r\n    },\r\n    \"policy\": {\r\n        \"skipEmailVerification\": false,\r\n        \"allowGuestAccess\": false,\r\n        \"allowProxyAuthentication\": false,\r\n        \"disableNativeUserLogin\": false\r\n    },\r\n    \"accountNumber\": \"string\",\r\n    \"region\": \"US\",\r\n    \"contacts\": [\r\n        {}\r\n    ],\r\n    \"source\": \"CLOUDLINK\",\r\n    \"languageCode\": \"string\",\r\n    \"carrierId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"domain\": \"string\",\r\n    \"workDomain\": \"string\",\r\n    \"topLevelDomain\": [\r\n        \"string\"\r\n    ],\r\n    \"accessTokenExpiryHours\": 0,\r\n    \"refreshTokenExpiryHours\": 0,\r\n    \"active\": false,\r\n    \"state\": \"active\",\r\n    \"authProvider\": \"CLOUD_LINK\",\r\n    \"authProviderUrl\": \"string\",\r\n    \"tags\": {},\r\n    \"passwordPolicy\": \"string\",\r\n    \"location\": {\r\n        \"address\": {},\r\n        \"coords\": {},\r\n        \"timezone\": \"America/Montreal\"\r\n    },\r\n    \"policy\": {\r\n        \"skipEmailVerification\": false,\r\n        \"allowGuestAccess\": false,\r\n        \"allowProxyAuthentication\": false,\r\n        \"disableNativeUserLogin\": false\r\n    },\r\n    \"accountNumber\": \"string\",\r\n    \"region\": \"US\",\r\n    \"contacts\": [\r\n        {}\r\n    ],\r\n    \"languageCode\": \"string\",\r\n    \"carrierId\": \"string\",\r\n    \"policyId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "An Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}"
+							],
+							"query": [
+								{
+									"key": "hard",
+									"value": null,
+									"description": "use 'true' to completely delete the given resource and associated sub-resources",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "A Contact in My Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/contacts/{contactID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts",
+								"{contactID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contacts in My Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contacts in My Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contacts\": [\r\n        {\r\n            \"accountId\": \"string\",\r\n            \"contactId\": \"string\",\r\n            \"contactType\": \"TECHNICAL_SUPPORT\",\r\n            \"contactDetails\": [\r\n                {\r\n                    \"type\": \"email\",\r\n                    \"description\": \"string\",\r\n                    \"value\": \"string\"\r\n                }\r\n            ],\r\n            \"email\": \"string\",\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Contact in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contactType\": \"TECHNICAL_SUPPORT\",\r\n    \"contactDetails\": [\r\n        {\r\n            \"type\": \"email\",\r\n            \"description\": \"string\",\r\n            \"value\": \"string\"\r\n        }\r\n    ],\r\n    \"email\": \"string\",\r\n    \"name\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/contacts/{contactID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts",
+								"{contactID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Contact in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/contacts/{contactID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts",
+								"{contactID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Contact in Specified Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contacts in Specified Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contacts in Specified Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contacts\": [\r\n        {\r\n            \"accountId\": \"string\",\r\n            \"contactId\": \"string\",\r\n            \"contactType\": \"TECHNICAL_SUPPORT\",\r\n            \"contactDetails\": [\r\n                {\r\n                    \"type\": \"email\",\r\n                    \"description\": \"string\",\r\n                    \"value\": \"string\"\r\n                }\r\n            ],\r\n            \"email\": \"string\",\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Contact in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contactType\": \"TECHNICAL_SUPPORT\",\r\n    \"contactDetails\": [\r\n        {\r\n            \"type\": \"email\",\r\n            \"description\": \"string\",\r\n            \"value\": \"string\"\r\n        }\r\n    ],\r\n    \"email\": \"string\",\r\n    \"name\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/contacts/{contactID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"contacts",
+								"{contactID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Contact in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/contacts/{contactID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"contacts",
+								"{contactID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "A Group in My Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in My Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in My Account (With Tags)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Group in My Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {\r\n            \"memberId\": \"string\",\r\n            \"status\": \"INVITED\",\r\n            \"type\": \"string\",\r\n            \"createdOn\": \"2019-08-24T14:15:22Z\",\r\n            \"createdBy\": \"string\",\r\n            \"modifiedOn\": \"2019-08-24T14:15:22Z\",\r\n            \"modifiedBy\": \"string\"\r\n        }\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Group in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {}\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Group in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Group in Specified Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in Specified Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/groups",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in Specified Account (With Tags)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/account/{accountID}/groups/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"account",
+								"{accountID}",
+								"groups",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Group in Specified Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {\r\n            \"memberId\": \"string\",\r\n            \"status\": \"INVITED\",\r\n            \"type\": \"string\",\r\n            \"createdOn\": \"2019-08-24T14:15:22Z\",\r\n            \"createdBy\": \"string\",\r\n            \"modifiedOn\": \"2019-08-24T14:15:22Z\",\r\n            \"modifiedBy\": \"string\"\r\n        }\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Group in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {\r\n            \"memberId\": \"string\",\r\n            \"status\": \"INVITED\",\r\n            \"type\": \"string\",\r\n            \"createdOn\": \"2019-08-24T14:15:22Z\",\r\n            \"createdBy\": \"string\",\r\n            \"modifiedOn\": \"2019-08-24T14:15:22Z\",\r\n            \"modifiedBy\": \"string\"\r\n        }\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Group in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/groups/{groupID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"groups",
+								"{groupID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Group Member in Specified Account & Group",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountId}/groups/{groupId}/members/{memberId}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountId}",
+								"groups",
+								"{groupId}",
+								"members",
+								"{memberId}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Emails",
+			"item": [
+				{
+					"name": "Send Templated Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": [\r\n        \"recipient1@mitel-test.com\",\r\n        \"recipient2@mitel-test.com\"\r\n    ],\r\n    \"templateProperties\": {\r\n        \"applicationName\": \"ACCOUNTS\",\r\n        \"subject\": \"A custom subject for your email\"\r\n    },\r\n    \"languageCode\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/emails/templates/{templateId}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"emails",
+								"templates",
+								"{templateId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Welcome Email - Existing User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"application\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"workspace\": \"string\",\r\n    \"mobileAppName\": \"string\",\r\n    \"mobileAppNameLong\": \"string\",\r\n    \"type\": \"user\",\r\n    \"redirect_uri\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/{{accountID}}}/users/{userId}/welcome",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"{{accountID}}}",
+								"users",
+								"{userId}",
+								"welcome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Welcome Email - Nonexistent User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"application\": \"string\",\r\n    \"email\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"workspace\": \"string\",\r\n    \"mobileAppName\": \"string\",\r\n    \"mobileAppNameLong\": \"string\",\r\n    \"type\": \"user\",\r\n    \"redirect_uri\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountId}/welcome",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountId}",
+								"welcome"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photos",
+			"item": [
+				{
+					"name": "Upload User Photo in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/users/{userId}/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"{userId}",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Photo in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/users/{userId}/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"{userId}",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload User Photo in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/users/{userId}/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"users",
+								"{userId}",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Photo in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/users/{userId}/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"users",
+								"{userId}",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Specification",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{admin_url}}/_spec",
+					"host": [
+						"{{admin_url}}"
+					],
+					"path": [
+						"_spec"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

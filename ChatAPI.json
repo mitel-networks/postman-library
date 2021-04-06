@@ -1,0 +1,1468 @@
+{
+	"info": {
+		"_postman_id": "568c0e18-3354-47ad-8574-e64c2d2dea4e",
+		"name": "Chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Conversation",
+			"item": [
+				{
+					"name": "A Conversation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conversations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "Odata search param",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Specify which sub-resources to include in the response. Supports the following Odata for embedded resources: $filter, $orderby, $select, $skip, $top ($expand is also supported where applicable). Eg: /messages?$expand=status,reaction($filter=reaction eq '👍';$orderby=userId asc)",
+									"disabled": true
+								},
+								{
+									"key": "$participants",
+									"value": null,
+									"description": "Values: contains-exact(user-id-1, user-id-2, ...): Returns conversations with exactly the provided participants (none missing, none extra).",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Conversation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"stream\": false,\r\n    \"thumbnailUrl\": \"http://example.com\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"hidden\": true,\r\n    \"generateSystemMessages\": false,\r\n    \"originalParticipants\": [\r\n        {\r\n            \"type\": \"USER\",\r\n            \"participantId\": \"string\"\r\n        }\r\n    ],\r\n    \"accessCode\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Conversation",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"thumbnailUrl\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"hidden\": true,\r\n    \"stream\": false,\r\n    \"generateSystemMessages\": false,\r\n    \"accountId\": \"string\",\r\n    \"conversationId\": \"string\",\r\n    \"email\": \"user@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Conversation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Conversation Transcript",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"stream\": false,\r\n    \"thumbnailUrl\": \"http://example.com\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"hidden\": true,\r\n    \"generateSystemMessages\": false,\r\n    \"participants\": [\r\n        \"string\"\r\n    ],\r\n    \"originalParticipants\": [\r\n        {}\r\n    ],\r\n    \"accessCode\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "A Message",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}",
+								"messages",
+								"{messageID}"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Specify which sub-resources to include in the response. Supports the following Odata for embedded resources: $filter, $orderby, $select, $skip, $top ($expand is also supported where applicable). Eg: /messages?$expand=status,reaction($filter=reaction eq '👍';$orderby=userId asc)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Messages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}/messages",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "Odata search param",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Specify which sub-resources to include in the response. Supports the following Odata for embedded resources: $filter, $orderby, $select, $skip, $top ($expand is also supported where applicable). Eg: /messages?$expand=status,reaction($filter=reaction eq '👍';$orderby=userId asc)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\": \"string\",\r\n    \"contentType\": \"string\",\r\n    \"fallbackText\": \"string\",\r\n    \"parentMessageId\": \"string\",\r\n    \"tag\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}/messages",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Message",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\": \"string\",\r\n    \"contentType\": \"string\",\r\n    \"fallbackText\": \"string\",\r\n    \"tag\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}",
+								"messages",
+								"{messageID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Message",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}",
+								"messages",
+								"{messageID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}/replies",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationID}",
+								"messages",
+								"{messageID}",
+								"replies"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Participant",
+			"item": [
+				{
+					"name": "A Participant",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"participants",
+								"{participantID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Participants",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/participants",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"participants"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Participant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"string\",\r\n    \"status\": \"INVITED\",\r\n    \"conversationVisibility\": \"VISIBLE\",\r\n    \"participantType\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/participants",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"participants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Participant",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"INVITED\",\r\n    \"lastReadMessageDate\": \"2020-08-24T14:15:22Z\",\r\n    \"conversationVisibility\": \"VISIBLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"participants",
+								"{participantID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a Participant",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"participants",
+								"{participantID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Typing Message for a Participant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"START\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}/typing",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"participants",
+								"{participantID}",
+								"typing"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attachment",
+			"item": [
+				{
+					"name": "An Attachment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/attachments/{attachmentID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"attachments",
+								"{attachmentID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attachments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/attachments",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"attachments"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "Odata search param",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create/Update an Attachment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/attachments/{attachmentID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"attachments",
+								"{attachmentID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "An Attachment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/attachments/{attachmentID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"attachments",
+								"{attachmentID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Command",
+			"item": []
+		},
+		{
+			"name": "Reaction",
+			"item": [
+				{
+					"name": "A Message Reaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions/{reactionID}",
+							"host": [
+								"{{chat_url}}conversations"
+							],
+							"path": [
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"reactions",
+								"{reactionID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Message Reactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions",
+							"host": [
+								"{{chat_url}}conversations"
+							],
+							"path": [
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"reactions"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Message Reaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reaction\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions",
+							"host": [
+								"{{chat_url}}conversations"
+							],
+							"path": [
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"reactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Message Reaction",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reaction\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions/{reactionID}",
+							"host": [
+								"{{chat_url}}conversations"
+							],
+							"path": [
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"reactions",
+								"{reactionID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Message Reaction",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions/{reactionID}",
+							"host": [
+								"{{chat_url}}conversations"
+							],
+							"path": [
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"reactions",
+								"{reactionID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message Status",
+			"item": [
+				{
+					"name": "Message Statuses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/messages/{messageId}/statuses",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"statuses"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": null,
+									"description": "Specifies which object properties should be returned. If undefined, all properties are included. Properties beginning with '_' are always returned. Eg: $select=conversationId,accountId,createdBy",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Message Status Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/messages/{messageId}/statuses/{participantID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"statuses",
+								"{participantID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resend Failed Message",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"PENDING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_url}}/conversations/{conversationId}/messages/{messageId}/statuses/{participantID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"conversations",
+								"{conversationId}",
+								"messages",
+								"{messageId}",
+								"statuses",
+								"{participantID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "a Single Conversation for Specified User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/users/{userId}/conversations/{conversationID}",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"users",
+								"{userId}",
+								"conversations",
+								"{conversationID}"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Odata expand param. Set '$expand=conversation' to receive a full conversation object in response.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conversations for Specified User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/users/{userId}/conversations",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"users",
+								"{userId}",
+								"conversations"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Odata expand param. Set '$expand=conversation' to receive a full conversation object in response.",
+									"disabled": true
+								},
+								{
+									"key": "participants",
+									"value": null,
+									"description": "Values: filter(filter): Only returns conversations where the user participant matches filter (written in the style of $filter parameters).",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mentions for Specified User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{chat_url}}/users/{userId}/mentions",
+							"host": [
+								"{{chat_url}}"
+							],
+							"path": [
+								"users",
+								"{userId}",
+								"mentions"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include. $skip + $top must be less than or equal to 10000",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Available Operations: [eq, ne, lt, gt, le, ge, in, and, or]. To reference embbedded resources: $filter=resource/any(r:r/property eq 'value') Syntax is based on the OData v4.0.1 Specification. String values must be surrounded with single quotes ('), a single quote/apostrophe can be escaped with itself (ie. '').",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata orderby param. Uses the format $orderby={property} (asc|desc). If neither asc nor desc is defined, asc is used.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Odata expand param. Set '$expand=conversation' to receive a full conversation object in response.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Specification",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{chat_url}}/_spec",
+					"host": [
+						"{{chat_url}}"
+					],
+					"path": [
+						"_spec"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
