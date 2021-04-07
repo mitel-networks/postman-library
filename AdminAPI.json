@@ -46,13 +46,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{admin_url}}/accounts/{{accountID}}/users",
+							"raw": "{{admin_url}}/users",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
-								"accounts",
-								"{{accountID}}",
 								"users"
 							],
 							"query": [
@@ -266,71 +264,73 @@
 							}
 						],
 						"url": {
-							"raw": "{{admin_url}}/users",
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
+								"accounts",
+								"{{accountID}}",
 								"users"
 							],
 							"query": [
 								{
 									"key": "$skip",
-									"value": null,
+									"value": "",
 									"description": "Number of items to skip",
 									"disabled": true
 								},
 								{
 									"key": "$top",
-									"value": null,
+									"value": "",
 									"description": "Number of items to include",
 									"disabled": true
 								},
 								{
 									"key": "$skipToken",
-									"value": null,
+									"value": "",
 									"description": "Use skipToken for the next scroll",
 									"disabled": true
 								},
 								{
 									"key": "$filter",
-									"value": null,
+									"value": "",
 									"description": "Odata filter param",
 									"disabled": true
 								},
 								{
 									"key": "$search",
-									"value": null,
+									"value": "",
 									"description": "text based search",
 									"disabled": true
 								},
 								{
 									"key": "$searchKeys",
-									"value": null,
+									"value": "",
 									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
 									"disabled": true
 								},
 								{
 									"key": "$expand",
-									"value": null,
+									"value": "",
 									"description": "expands an attribute",
 									"disabled": true
 								},
 								{
 									"key": "items",
-									"value": null,
+									"value": "",
 									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
 									"disabled": true
 								},
 								{
 									"key": "itemKeys",
-									"value": null,
+									"value": "",
 									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
 									"disabled": true
 								},
 								{
 									"key": "orderby",
-									"value": null,
+									"value": "",
 									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
 									"disabled": true
 								}
