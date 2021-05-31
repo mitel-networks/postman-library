@@ -1,0 +1,2906 @@
+{
+	"info": {
+		"_postman_id": "a00ecea0-3293-45b3-9b77-238433f36369",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "A User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData))\r",
+									"\r",
+									"//Create and set additional environment variables\r",
+									"pm.environment.set(\"user_fullname\", jsonData[\"name\"]);\r",
+									"pm.environment.set(\"userId\", jsonData[\"userId\"]);\r",
+									"pm.environment.set(\"user_email\", jsonData[\"email\"]);\r",
+									"pm.environment.set(\"user_site\", jsonData[\"siteId\"]);\r",
+									"pm.environment.set(\"user_firstname\", jsonData[\"firstName\"]);\r",
+									"pm.environment.set(\"user_lastname\", jsonData[\"lastName\"]);\r",
+									"pm.environment.set(\"user_photo\", jsonData[\"photoUrl\"]);\r",
+									"pm.environment.set(\"user_sipAddress\", jsonData[\"sipAddress\"]);\r",
+									"pm.environment.set(\"user_sipPassword\", jsonData[\"sipPassword\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/f4bb88bc-8c90-4711-ac79-4b33573aaff9",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users",
+								"f4bb88bc-8c90-4711-ac79-4b33573aaff9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in My Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let fullnames = [];\r",
+									"let userIds = [];\r",
+									"let emails = [];\r",
+									"let sites = [];\r",
+									"let firstnames = [];\r",
+									"let lastnames = [];\r",
+									"let photos = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    fullnames.push(item.name)\r",
+									"    userIds.push(item.userId)\r",
+									"    emails.push(item.email)\r",
+									"    sites.push(item.siteId)\r",
+									"    firstnames.push(item.firstName)\r",
+									"    lastnames.push(item.lastName)\r",
+									"    photos.push(item.photoUrl)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"user_fullname\", fullnames);\r",
+									"pm.environment.set(\"userId\", userIds);\r",
+									"pm.environment.set(\"user_email\", emails);\r",
+									"pm.environment.set(\"user_site\", sites);\r",
+									"pm.environment.set(\"user_firstname\", firstnames);\r",
+									"pm.environment.set(\"user_lastname\", lastnames);\r",
+									"pm.environment.set(\"user_photo\", photos);\r",
+									"pm.environment.set(\"user_sipAddress\", sipaddresses);\r",
+									"pm.environment.set(\"user_sipPassword\", sippasswords);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": null,
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in My Account (With Tags)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let fullnames = [];\r",
+									"let userIds = [];\r",
+									"let emails = [];\r",
+									"let sites = [];\r",
+									"let firstnames = [];\r",
+									"let lastnames = [];\r",
+									"let photos = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    fullnames.push(item.name)\r",
+									"    userIds.push(item.userId)\r",
+									"    emails.push(item.email)\r",
+									"    sites.push(item.siteId)\r",
+									"    firstnames.push(item.firstName)\r",
+									"    lastnames.push(item.lastName)\r",
+									"    photos.push(item.photoUrl)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"user_fullname\", fullnames);\r",
+									"pm.environment.set(\"userId\", userIds);\r",
+									"pm.environment.set(\"user_email\", emails);\r",
+									"pm.environment.set(\"user_site\", sites);\r",
+									"pm.environment.set(\"user_firstname\", firstnames);\r",
+									"pm.environment.set(\"user_lastname\", lastnames);\r",
+									"pm.environment.set(\"user_photo\", photos);\r",
+									"pm.environment.set(\"user_sipAddress\", sipaddresses);\r",
+									"pm.environment.set(\"user_sipPassword\", sippasswords);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/users/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User in My Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"string\",\r\n    \"userId\": \"string\",\r\n    \"uniqueUserId\": \"string\",\r\n    \"email\": \"string\",\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"password\": \"string\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"source\": \"APP\",\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"email\": \"string\",\r\n    \"role\": \"GLOBAL_ADMIN\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/users/{{userId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/users/{{userId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in Specified Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let fullnames = [];\r",
+									"let userIds = [];\r",
+									"let emails = [];\r",
+									"let sites = [];\r",
+									"let firstnames = [];\r",
+									"let lastnames = [];\r",
+									"let photos = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    fullnames.push(item.name)\r",
+									"    userIds.push(item.userId)\r",
+									"    emails.push(item.email)\r",
+									"    sites.push(item.siteId)\r",
+									"    firstnames.push(item.firstName)\r",
+									"    lastnames.push(item.lastName)\r",
+									"    photos.push(item.photoUrl)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"user_fullname\", fullnames);\r",
+									"pm.environment.set(\"userId\", userIds);\r",
+									"pm.environment.set(\"user_email\", emails);\r",
+									"pm.environment.set(\"user_site\", sites);\r",
+									"pm.environment.set(\"user_firstname\", firstnames);\r",
+									"pm.environment.set(\"user_lastname\", lastnames);\r",
+									"pm.environment.set(\"user_photo\", photos);\r",
+									"pm.environment.set(\"user_sipAddress\", sipaddresses);\r",
+									"pm.environment.set(\"user_sipPassword\", sippasswords);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": "",
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": "",
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": "",
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": "",
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": "",
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": "",
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": "",
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": "",
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": "",
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "",
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users in Specified Account (With Tags)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let fullnames = [];\r",
+									"let userIds = [];\r",
+									"let emails = [];\r",
+									"let sites = [];\r",
+									"let firstnames = [];\r",
+									"let lastnames = [];\r",
+									"let photos = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    fullnames.push(item.name)\r",
+									"    userIds.push(item.userId)\r",
+									"    emails.push(item.email)\r",
+									"    sites.push(item.siteId)\r",
+									"    firstnames.push(item.firstName)\r",
+									"    lastnames.push(item.lastName)\r",
+									"    photos.push(item.photoUrl)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"user_fullname\", fullnames);\r",
+									"pm.environment.set(\"userId\", userIds);\r",
+									"pm.environment.set(\"user_email\", emails);\r",
+									"pm.environment.set(\"user_site\", sites);\r",
+									"pm.environment.set(\"user_firstname\", firstnames);\r",
+									"pm.environment.set(\"user_lastname\", lastnames);\r",
+									"pm.environment.set(\"user_photo\", photos);\r",
+									"pm.environment.set(\"user_sipAddress\", sipaddresses);\r",
+									"pm.environment.set(\"user_sipPassword\", sippasswords);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User in Specified Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"string\",\r\n    \"uniqueUserId\": \"string\",\r\n    \"email\": \"string\",\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"password\": \"string\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"source\": \"APP\",\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}}/users",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"email\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}}/users/{{userId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}}",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/{{userId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "An Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Create and set additional environment variables\r",
+									"pm.environment.set(\"account_createddate\", jsonData[\"createdOn\"]);\r",
+									"pm.environment.set(\"account_userLimit\", jsonData[\"userLimit\"]);\r",
+									"pm.environment.set(\"account_createdby\", jsonData[\"createdBy\"]);\r",
+									"pm.environment.set(\"account_domain\", jsonData[\"domain\"]);\r",
+									"pm.environment.set(\"account_language\", jsonData[\"languageCode\"]);\r",
+									"pm.environment.set(\"account_country\", jsonData[\"location\"][\"address\"][\"country\"]);\r",
+									"pm.environment.set(\"account_address1\", jsonData[\"location\"][\"address\"][\"street\"]);\r",
+									"pm.environment.set(\"account_city\", jsonData[\"location\"][\"address\"][\"city\"]);\r",
+									"pm.environment.set(\"account_state\", jsonData[\"location\"][\"address\"][\"stateOrProvince\"]);\r",
+									"pm.environment.set(\"account_postalcode\", jsonData[\"location\"][\"address\"][\"zipCode\"]);\r",
+									"pm.environment.set(\"account_name\", jsonData[\"name\"]);\r",
+									"pm.environment.set(\"account_partnerId\", jsonData[\"partnerId\"]);\r",
+									"pm.environment.set(\"account_policyId\", jsonData[\"policyId\"]);\r",
+									"pm.environment.set(\"account_status\", jsonData[\"state\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/105990045",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"105990045"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let userlimits = [];\r",
+									"let createdbys = [];\r",
+									"let domains = [];\r",
+									"let languages = [];\r",
+									"let countries = [];\r",
+									"let addresses = [];\r",
+									"let cities = [];\r",
+									"let states = [];\r",
+									"let postalcodes = [];\r",
+									"let names = [];\r",
+									"let partnerIds = [];\r",
+									"let policyIds = [];\r",
+									"let statuses = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    userlimits.push(item.userLimit)\r",
+									"    createdbys.push(item.createdBy)\r",
+									"    domains.push(item.domain)\r",
+									"    languages.push(item.languageCode)\r",
+									"    countries.push(item.location.address.country)\r",
+									"    addresses.push(item.location.address.street)\r",
+									"    cities.push(item.location.address.city)\r",
+									"    states.push(item.location.address.state)\r",
+									"    postalcodes.push(item.location.address.zipCode)\r",
+									"    names.push(item.name)\r",
+									"    partnerIds.push(item.partnerId)\r",
+									"    policyIds.push(item.policyId)\r",
+									"    statuses.push(item.status)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"account_createddate\", createddates);\r",
+									"pm.environment.set(\"account_userLimit\", userlimits);\r",
+									"pm.environment.set(\"account_createdby\", createdbys);\r",
+									"pm.environment.set(\"account_domain\", domains);\r",
+									"pm.environment.set(\"account_language\", languages);\r",
+									"pm.environment.set(\"account_country\", countries);\r",
+									"pm.environment.set(\"account_address1\", addresses);\r",
+									"pm.environment.set(\"account_city\", cities);\r",
+									"pm.environment.set(\"account_state\", states);\r",
+									"pm.environment.set(\"account_postalcode\", postalcodes);\r",
+									"pm.environment.set(\"account_name\", names);\r",
+									"pm.environment.set(\"account_partnerId\", partnerIds);\r",
+									"pm.environment.set(\"account_policyId\", policyIds);\r",
+									"pm.environment.set(\"account_status\", statuses);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accounts with Tags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let userlimits = [];\r",
+									"let createdbys = [];\r",
+									"let domains = [];\r",
+									"let languages = [];\r",
+									"let countries = [];\r",
+									"let addresses = [];\r",
+									"let cities = [];\r",
+									"let states = [];\r",
+									"let postalcodes = [];\r",
+									"let names = [];\r",
+									"let partnerIds = [];\r",
+									"let policyIds = [];\r",
+									"let statuses = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    userlimits.push(item.userLimit)\r",
+									"    createdbys.push(item.createdBy)\r",
+									"    domains.push(item.domain)\r",
+									"    languages.push(item.languageCode)\r",
+									"    countries.push(item.location.address.country)\r",
+									"    addresses.push(item.location.address.street)\r",
+									"    cities.push(item.location.address.city)\r",
+									"    states.push(item.location.address.state)\r",
+									"    postalcodes.push(item.location.address.zipCode)\r",
+									"    names.push(item.name)\r",
+									"    partnerIds.push(item.partnerId)\r",
+									"    policyIds.push(item.policyId)\r",
+									"    statuses.push(item.status)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"account_createddate\", createddates);\r",
+									"pm.environment.set(\"account_userLimit\", userlimits);\r",
+									"pm.environment.set(\"account_createdby\", createdbys);\r",
+									"pm.environment.set(\"account_domain\", domains);\r",
+									"pm.environment.set(\"account_language\", languages);\r",
+									"pm.environment.set(\"account_country\", countries);\r",
+									"pm.environment.set(\"account_address1\", addresses);\r",
+									"pm.environment.set(\"account_city\", cities);\r",
+									"pm.environment.set(\"account_state\", states);\r",
+									"pm.environment.set(\"account_postalcode\", postalcodes);\r",
+									"pm.environment.set(\"account_name\", names);\r",
+									"pm.environment.set(\"account_partnerId\", partnerIds);\r",
+									"pm.environment.set(\"account_policyId\", policyIds);\r",
+									"pm.environment.set(\"account_status\", statuses);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"partnerId\": \"string\",\r\n    \"accountId\": \"string\",\r\n    \"name\": \"string\",\r\n    \"domain\": \"string\",\r\n    \"workDomain\": \"string\",\r\n    \"topLevelDomain\": [\r\n        \"string\"\r\n    ],\r\n    \"accessTokenExpiryHours\": 0,\r\n    \"refreshTokenExpiryHours\": 0,\r\n    \"active\": true,\r\n    \"state\": \"active\",\r\n    \"authProvider\": \"CLOUD_LINK\",\r\n    \"authProviderUrl\": \"string\",\r\n    \"tags\": {},\r\n    \"passwordPolicy\": \"string\",\r\n    \"location\": {\r\n        \"address\": {},\r\n        \"coords\": {},\r\n        \"timezone\": \"America/Montreal\"\r\n    },\r\n    \"policy\": {\r\n        \"skipEmailVerification\": false,\r\n        \"allowGuestAccess\": false,\r\n        \"allowProxyAuthentication\": false,\r\n        \"disableNativeUserLogin\": false\r\n    },\r\n    \"accountNumber\": \"string\",\r\n    \"region\": \"US\",\r\n    \"contacts\": [\r\n        {}\r\n    ],\r\n    \"source\": \"CLOUDLINK\",\r\n    \"languageCode\": \"string\",\r\n    \"carrierId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"domain\": \"string\",\r\n    \"workDomain\": \"string\",\r\n    \"topLevelDomain\": [\r\n        \"string\"\r\n    ],\r\n    \"accessTokenExpiryHours\": 0,\r\n    \"refreshTokenExpiryHours\": 0,\r\n    \"active\": false,\r\n    \"state\": \"active\",\r\n    \"authProvider\": \"CLOUD_LINK\",\r\n    \"authProviderUrl\": \"string\",\r\n    \"tags\": {},\r\n    \"passwordPolicy\": \"string\",\r\n    \"location\": {\r\n        \"address\": {},\r\n        \"coords\": {},\r\n        \"timezone\": \"America/Montreal\"\r\n    },\r\n    \"policy\": {\r\n        \"skipEmailVerification\": false,\r\n        \"allowGuestAccess\": false,\r\n        \"allowProxyAuthentication\": false,\r\n        \"disableNativeUserLogin\": false\r\n    },\r\n    \"accountNumber\": \"string\",\r\n    \"region\": \"US\",\r\n    \"contacts\": [\r\n        {}\r\n    ],\r\n    \"languageCode\": \"string\",\r\n    \"carrierId\": \"string\",\r\n    \"policyId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "An Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{ACCOUNTID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{ACCOUNTID}"
+							],
+							"query": [
+								{
+									"key": "hard",
+									"value": null,
+									"description": "use 'true' to completely delete the given resource and associated sub-resources",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "A Contact in My Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Create and set additional environment variables\r",
+									"pm.environment.set(\"contact_createddate\", jsonData[\"createdOn\"]);\r",
+									"pm.environment.set(\"contactId\", jsonData[\"contactId\"]);\r",
+									"pm.environment.set(\"contact_name\", jsonData[\"name\"]);\r",
+									"pm.environment.set(\"contact_email\", jsonData[\"email\"]);\r",
+									"pm.environment.set(\"contact_type\", jsonData[\"contactType\"]);\r",
+									"pm.environment.set(\"contact_createdby\", jsonData[\"createdBy\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/contacts/{{contactId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts",
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contacts in My Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let contactIds = [];\r",
+									"let names = [];\r",
+									"let emails = [];\r",
+									"let types = [];\r",
+									"let createdbys = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    contactIds.push(item.contactId)\r",
+									"    names.push(item.name)\r",
+									"    emails.push(item.email)\r",
+									"    types.push(item.contactType)\r",
+									"    createdbys.push(item.createdBy)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"contact_createddate\", createddates);\r",
+									"pm.environment.set(\"contactId\", contactIds);\r",
+									"pm.environment.set(\"contact_name\", names);\r",
+									"pm.environment.set(\"contact_email\", emails);\r",
+									"pm.environment.set(\"contact_type\", types);\r",
+									"pm.environment.set(\"contact_createdby\", createdbys);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contacts in My Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contacts\": [\r\n        {\r\n            \"accountId\": \"string\",\r\n            \"contactId\": \"string\",\r\n            \"contactType\": \"TECHNICAL_SUPPORT\",\r\n            \"contactDetails\": [\r\n                {\r\n                    \"type\": \"email\",\r\n                    \"description\": \"string\",\r\n                    \"value\": \"string\"\r\n                }\r\n            ],\r\n            \"email\": \"string\",\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Contact in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contactType\": \"TECHNICAL_SUPPORT\",\r\n    \"contactDetails\": [\r\n        {\r\n            \"type\": \"email\",\r\n            \"description\": \"string\",\r\n            \"value\": \"string\"\r\n        }\r\n    ],\r\n    \"email\": \"string\",\r\n    \"name\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/contacts/{{contactId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts",
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Contact in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/contacts/{{contactId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"contacts",
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Contact in Specified Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Create and set additional environment variables\r",
+									"pm.environment.set(\"contact_createddate\", jsonData[\"createdOn\"]);\r",
+									"pm.environment.set(\"contactId\", jsonData[\"contactId\"]);\r",
+									"pm.environment.set(\"contact_name\", jsonData[\"name\"]);\r",
+									"pm.environment.set(\"contact_email\", jsonData[\"email\"]);\r",
+									"pm.environment.set(\"contact_type\", jsonData[\"contactType\"]);\r",
+									"pm.environment.set(\"contact_createdby\", jsonData[\"createdBy\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/contacts/{{contactId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"contacts",
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contacts in Specified Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let contactIds = [];\r",
+									"let names = [];\r",
+									"let emails = [];\r",
+									"let types = [];\r",
+									"let createdbys = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    contactIds.push(item.contactId)\r",
+									"    names.push(item.name)\r",
+									"    emails.push(item.email)\r",
+									"    types.push(item.contactType)\r",
+									"    createdbys.push(item.createdBy)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"contact_createddate\", createddates);\r",
+									"pm.environment.set(\"contactId\", contactIds);\r",
+									"pm.environment.set(\"contact_name\", names);\r",
+									"pm.environment.set(\"contact_email\", emails);\r",
+									"pm.environment.set(\"contact_type\", types);\r",
+									"pm.environment.set(\"contact_createdby\", createdbys);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contacts in Specified Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contacts\": [\r\n        {\r\n            \"accountId\": \"string\",\r\n            \"contactId\": \"string\",\r\n            \"contactType\": \"TECHNICAL_SUPPORT\",\r\n            \"contactDetails\": [\r\n                {\r\n                    \"type\": \"email\",\r\n                    \"description\": \"string\",\r\n                    \"value\": \"string\"\r\n                }\r\n            ],\r\n            \"email\": \"string\",\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/contacts",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Contact in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contactType\": \"TECHNICAL_SUPPORT\",\r\n    \"contactDetails\": [\r\n        {\r\n            \"type\": \"email\",\r\n            \"description\": \"string\",\r\n            \"value\": \"string\"\r\n        }\r\n    ],\r\n    \"email\": \"string\",\r\n    \"name\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/contacts/{{contactId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"contacts",
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Contact in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/contacts/{{contactId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"contacts",
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "A Group in My Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Create and set additional environment variables\r",
+									"pm.environment.set(\"group_createddate\", jsonData[\"createdOn\"]);\r",
+									"pm.environment.set(\"group_visibility\", jsonData[\"visibility\"]);\r",
+									"pm.environment.set(\"groupId\", jsonData[\"groupId\"]);\r",
+									"pm.environment.set(\"group_dialable\", jsonData[\"dialableNumber\"]);\r",
+									"pm.environment.set(\"group_name\", jsonData[\"name\"]);\r",
+									"pm.environment.set(\"group_type\", jsonData[\"type\"]);\r",
+									"pm.environment.set(\"group_subType\", jsonData[\"subType\"]);\r",
+									"pm.environment.set(\"group_sipaddress\", jsonData[\"sipAddress\"]);\r",
+									"pm.environment.set(\"group_sippassword\", jsonData[\"sipPassword\"]);\r",
+									"pm.environment.set(\"group_membercount\", jsonData[\"_embedded\"][\"members\"][\"count\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups/{{groupId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in My Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let visibilities = [];\r",
+									"let groupIDs = [];\r",
+									"let dialables = [];\r",
+									"let names = [];\r",
+									"let types = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"let membercounts = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    visibilities.push(item.visibility)\r",
+									"    groupIDs.push(item.groupId)\r",
+									"    dialables.push(item.dialableNumber)\r",
+									"    names.push(item.name)\r",
+									"    types.push(item.type)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"    membercounts.push(item._embedded.members.count)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"group_createddate\", createddates);\r",
+									"pm.environment.set(\"group_visibility\", visibilities);\r",
+									"pm.environment.set(\"groupId\", groupIDs);\r",
+									"pm.environment.set(\"group_dialable\", dialables);\r",
+									"pm.environment.set(\"group_name\", names);\r",
+									"pm.environment.set(\"group_type\", types);\r",
+									"pm.environment.set(\"group_sipaddress\", sipaddresses);\r",
+									"pm.environment.set(\"group_sippassword\", sippasswords);\r",
+									"pm.environment.set(\"group_membercount\", membercounts);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in My Account (With Tags)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let visibilities = [];\r",
+									"let groupIDs = [];\r",
+									"let dialables = [];\r",
+									"let names = [];\r",
+									"let types = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"let membercounts = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    visibilities.push(item.visibility)\r",
+									"    groupIDs.push(item.groupId)\r",
+									"    dialables.push(item.dialableNumber)\r",
+									"    names.push(item.name)\r",
+									"    types.push(item.type)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"    membercounts.push(item._embedded.members.count)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"group_createddate\", createddates);\r",
+									"pm.environment.set(\"group_visibility\", visibilities);\r",
+									"pm.environment.set(\"groupId\", groupIDs);\r",
+									"pm.environment.set(\"group_dialable\", dialables);\r",
+									"pm.environment.set(\"group_name\", names);\r",
+									"pm.environment.set(\"group_type\", types);\r",
+									"pm.environment.set(\"group_sipaddress\", sipaddresses);\r",
+									"pm.environment.set(\"group_sippassword\", sippasswords);\r",
+									"pm.environment.set(\"group_membercount\", membercounts);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Group in My Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {\r\n            \"memberId\": \"string\",\r\n            \"status\": \"INVITED\",\r\n            \"type\": \"string\",\r\n            \"createdOn\": \"2019-08-24T14:15:22Z\",\r\n            \"createdBy\": \"string\",\r\n            \"modifiedOn\": \"2019-08-24T14:15:22Z\",\r\n            \"modifiedBy\": \"string\"\r\n        }\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/groups",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Group in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {}\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/groups/{{groupId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Group in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/groups/{{groupId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Group in Specified Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Create and set additional environment variables\r",
+									"pm.environment.set(\"group_createddate\", jsonData[\"createdOn\"]);\r",
+									"pm.environment.set(\"group_visibility\", jsonData[\"visibility\"]);\r",
+									"pm.environment.set(\"groupId\", jsonData[\"groupId\"]);\r",
+									"pm.environment.set(\"group_dialable\", jsonData[\"dialableNumber\"]);\r",
+									"pm.environment.set(\"group_name\", jsonData[\"name\"]);\r",
+									"pm.environment.set(\"group_type\", jsonData[\"type\"]);\r",
+									"pm.environment.set(\"group_subType\", jsonData[\"subType\"]);\r",
+									"pm.environment.set(\"group_sipaddress\", jsonData[\"sipAddress\"]);\r",
+									"pm.environment.set(\"group_sippassword\", jsonData[\"sipPassword\"]);\r",
+									"pm.environment.set(\"group_membercount\", jsonData[\"_embedded\"][\"members\"][\"count\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/groups/{{groupId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in Specified Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let visibilities = [];\r",
+									"let groupIDs = [];\r",
+									"let dialables = [];\r",
+									"let names = [];\r",
+									"let types = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"let membercounts = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    visibilities.push(item.visibility)\r",
+									"    groupIDs.push(item.groupId)\r",
+									"    dialables.push(item.dialableNumber)\r",
+									"    names.push(item.name)\r",
+									"    types.push(item.type)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"    membercounts.push(item._embedded.members.count)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"group_createddate\", createddates);\r",
+									"pm.environment.set(\"group_visibility\", visibilities);\r",
+									"pm.environment.set(\"groupId\", groupIDs);\r",
+									"pm.environment.set(\"group_dialable\", dialables);\r",
+									"pm.environment.set(\"group_name\", names);\r",
+									"pm.environment.set(\"group_type\", types);\r",
+									"pm.environment.set(\"group_sipaddress\", sipaddresses);\r",
+									"pm.environment.set(\"group_sippassword\", sippasswords);\r",
+									"pm.environment.set(\"group_membercount\", membercounts);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/groups",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "expands an attribute",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "a comma-separated list of items to get, e.g. user-id-1, user-id-2",
+									"disabled": true
+								},
+								{
+									"key": "itemKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to lookup matching items in, e.g. userId, loginId, used in conjunction with items",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "a comma-separated list of fields and order to sort on, e.g. role asc, loginId desc. Defaults to ascending when no order is specified.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups in Specified Account (With Tags)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let visibilities = [];\r",
+									"let groupIDs = [];\r",
+									"let dialables = [];\r",
+									"let names = [];\r",
+									"let types = [];\r",
+									"let sipaddresses = [];\r",
+									"let sippasswords = [];\r",
+									"let membercounts = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    visibilities.push(item.visibility)\r",
+									"    groupIDs.push(item.groupId)\r",
+									"    dialables.push(item.dialableNumber)\r",
+									"    names.push(item.name)\r",
+									"    types.push(item.type)\r",
+									"    sipaddresses.push(item.sipAddress)\r",
+									"    sippasswords.push(item.sipPassword)\r",
+									"    membercounts.push(item._embedded.members.count)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"group_createddate\", createddates);\r",
+									"pm.environment.set(\"group_visibility\", visibilities);\r",
+									"pm.environment.set(\"groupId\", groupIDs);\r",
+									"pm.environment.set(\"group_dialable\", dialables);\r",
+									"pm.environment.set(\"group_name\", names);\r",
+									"pm.environment.set(\"group_type\", types);\r",
+									"pm.environment.set(\"group_sipaddress\", sipaddresses);\r",
+									"pm.environment.set(\"group_sippassword\", sippasswords);\r",
+									"pm.environment.set(\"group_membercount\", membercounts);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/account/{{accountID}}/groups/tags",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"account",
+								"{{accountID}}",
+								"groups",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Use skipToken for the next scroll",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$search",
+									"value": null,
+									"description": "text based search",
+									"disabled": true
+								},
+								{
+									"key": "$searchKeys",
+									"value": null,
+									"description": "a comma-separated list of keys to search in, e.g. name, email, tags. Used in conjunction with $search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Group in Specified Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {\r\n            \"memberId\": \"string\",\r\n            \"status\": \"INVITED\",\r\n            \"type\": \"string\",\r\n            \"createdOn\": \"2019-08-24T14:15:22Z\",\r\n            \"createdBy\": \"string\",\r\n            \"modifiedOn\": \"2019-08-24T14:15:22Z\",\r\n            \"modifiedBy\": \"string\"\r\n        }\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/groups/{{groupId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Group in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"visibility\": \"PUBLIC\",\r\n    \"members\": [\r\n        {\r\n            \"memberId\": \"string\",\r\n            \"status\": \"INVITED\",\r\n            \"type\": \"string\",\r\n            \"createdOn\": \"2019-08-24T14:15:22Z\",\r\n            \"createdBy\": \"string\",\r\n            \"modifiedOn\": \"2019-08-24T14:15:22Z\",\r\n            \"modifiedBy\": \"string\"\r\n        }\r\n    ],\r\n    \"type\": \"USER\",\r\n    \"subType\": \"PHANTOM\",\r\n    \"pbxType\": \"MiVoice250\",\r\n    \"dialableNumber\": \"string\",\r\n    \"photoUrl\": \"http://example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/groups/{{groupId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Group in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/groups/{{groupId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Group Member in Specified Account & Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"groupmember_createddate\", jsonData[\"createdOn\"]);\r",
+									"pm.environment.set(\"groupmember_status\", jsonData[\"status\"]);\r",
+									"pm.environment.set(\"memberId\", jsonData[\"memberId\"]);\r",
+									"pm.environment.set(\"groupId\", jsonData[\"groupID\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/groups/{{groupId}}/members/{{memberId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"groups",
+								"{{groupId}}",
+								"members",
+								"{{memberId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Emails",
+			"item": [
+				{
+					"name": "Send Templated Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": [\r\n        \"recipient1@mitel-test.com\",\r\n        \"recipient2@mitel-test.com\"\r\n    ],\r\n    \"templateProperties\": {\r\n        \"applicationName\": \"ACCOUNTS\",\r\n        \"subject\": \"A custom subject for your email\"\r\n    },\r\n    \"languageCode\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/emails/templates/{templateId}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"emails",
+								"templates",
+								"{templateId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Welcome Email - Existing User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"application\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"workspace\": \"string\",\r\n    \"mobileAppName\": \"string\",\r\n    \"mobileAppNameLong\": \"string\",\r\n    \"type\": \"user\",\r\n    \"redirect_uri\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/{{accountID}}}/users/{userId}/welcome",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"{{accountID}}}",
+								"users",
+								"{userId}",
+								"welcome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Welcome Email - Nonexistent User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"application\": \"string\",\r\n    \"email\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"workspace\": \"string\",\r\n    \"mobileAppName\": \"string\",\r\n    \"mobileAppNameLong\": \"string\",\r\n    \"type\": \"user\",\r\n    \"redirect_uri\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountId}/welcome",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountId}",
+								"welcome"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photos",
+			"item": [
+				{
+					"name": "Upload User Photo in My Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "{{admin_url}}/users/f4bb88bc-8c90-4711-ac79-4b33573aaff9/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"f4bb88bc-8c90-4711-ac79-4b33573aaff9",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Photo in My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/users/{userId}/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"users",
+								"{userId}",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload User Photo in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/users/{userId}/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"users",
+								"{userId}",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Photo in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{accountID}/users/{userId}/photo",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{accountID}",
+								"users",
+								"{userId}",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Get a Client in Specified Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Create and set additional environment variables\r",
+									"pm.environment.set(\"client_createddate\", jsonData[\"createdOn\"]);\r",
+									"pm.environment.set(\"clientId\", jsonData[\"clientId\"]);\r",
+									"pm.environment.set(\"client_active\", jsonData[\"active\"]);\r",
+									"pm.environment.set(\"client_name\", jsonData[\"name\"]);\r",
+									"pm.environment.set(\"client_role\", jsonData[\"role\"]);\r",
+									"pm.environment.set(\"client_type\", jsonData[\"type\"]);\r",
+									"pm.environment.set(\"client_createdby\", jsonData[\"createdBy\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/clients/{{clientId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"clients",
+								"{{clientId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clients in Specified Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Parse JSON and set environment variable with stringified data\r",
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"LastResponseData\",JSON.stringify(jsonData));\r",
+									"\r",
+									"//Declaration of variables as arrays\r",
+									"let createddates = [];\r",
+									"let clientIds = [];\r",
+									"let actives = [];\r",
+									"let names = [];\r",
+									"let roles = [];\r",
+									"let types = [];\r",
+									"let createdbys = [];\r",
+									"\r",
+									"//Loop through each returned object and assign properties to the appropriate arrays\r",
+									"for(let item of jsonData._embedded.items){\r",
+									"    createddates.push(item.createdOn)\r",
+									"    clientIds.push(item.clientId)\r",
+									"    actives.push(item.active)\r",
+									"    names.push(item.name)\r",
+									"    roles.push(item.role)\r",
+									"    types.push(item.type)\r",
+									"    createdbys.push(item.createdBy)\r",
+									"}\r",
+									"\r",
+									"//Set environment variables based on contents of each array\r",
+									"pm.environment.set(\"client_createddate\", createdbys);\r",
+									"pm.environment.set(\"clientId\", clientIds);\r",
+									"pm.environment.set(\"client_active\", actives);\r",
+									"pm.environment.set(\"client_name\", names);\r",
+									"pm.environment.set(\"client_role\", roles);\r",
+									"pm.environment.set(\"client_type\", types);\r",
+									"pm.environment.set(\"client_createdby\", createdbys);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/clients",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Client in Specified Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"role\": \"ACCOUNT_ADMIN\",\r\n    \"type\": \"DEFAULT\",\r\n    \"active\": true,\r\n    \"clientId\": \"string\",\r\n    \"policyId\": \"string\",\r\n    \"allowProxyAuthentication\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/clients",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client in Specified Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"role\": \"ACCOUNT_ADMIN\",\r\n    \"type\": \"DEFAULT\",\r\n    \"active\": true,\r\n    \"clientId\": \"string\",\r\n    \"policyId\": \"string\",\r\n    \"allowProxyAuthentication\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/clients/{clientID}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"clients",
+								"{clientID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client in Specified Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{admin_url}}/accounts/{{accountID}}/clients/{{clientId}}",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountID}}",
+								"clients",
+								"{{clientId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Specification",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{admin_url}}/_spec",
+					"host": [
+						"{{admin_url}}"
+					],
+					"path": [
+						"_spec"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
