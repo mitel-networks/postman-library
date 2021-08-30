@@ -44,7 +44,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{admin_url}}/accounts/{{accountID}}/users/f4bb88bc-8c90-4711-ac79-4b33573aaff9",
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/{{userId}}",
 							"host": [
 								"{{admin_url}}"
 							],
@@ -52,7 +52,7 @@
 								"accounts",
 								"{{accountID}}",
 								"users",
-								"f4bb88bc-8c90-4711-ac79-4b33573aaff9"
+								"{{userId}}"
 							]
 						}
 					},
@@ -305,7 +305,13 @@
 					"name": "Create User in My Account",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"accountId\": \"string\",\r\n    \"userId\": \"string\",\r\n    \"uniqueUserId\": \"string\",\r\n    \"email\": \"string\",\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"password\": \"string\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"source\": \"APP\",\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
@@ -331,7 +337,13 @@
 					"name": "Update User in My Account",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"email\": \"string\",\r\n    \"role\": \"GLOBAL_ADMIN\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
@@ -358,7 +370,13 @@
 					"name": "Delete User in My Account",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{admin_url}}/users/{{userId}}",
 							"host": [
@@ -623,7 +641,13 @@
 					"name": "Create User in Specified Account",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"userId\": \"string\",\r\n    \"uniqueUserId\": \"string\",\r\n    \"email\": \"string\",\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"password\": \"string\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"source\": \"APP\",\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
@@ -651,7 +675,13 @@
 					"name": "Update User in Specified Account",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"name\": \"string\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"nickName\": \"string\",\r\n    \"email\": \"string\",\r\n    \"role\": \"USER\",\r\n    \"mobile\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"extension\": \"string\",\r\n    \"address\": \"string\",\r\n    \"photoUrl\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"loginId\": \"string\",\r\n    \"active\": true,\r\n    \"policyId\": \"string\",\r\n    \"siteId\": \"string\"\r\n}",
@@ -680,7 +710,13 @@
 					"name": "Delete User in Specified Account",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{admin_url}}/accounts/{{accountID}}/users/{{userId}}",
 							"host": [
@@ -742,13 +778,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{admin_url}}/accounts/105990045",
+							"raw": "{{admin_url}}/accounts/{{accountID}}",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
 								"accounts",
-								"105990045"
+								"{{accountID}}"
 							]
 						}
 					},
@@ -1056,13 +1092,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{admin_url}}/accounts/{ACCOUNTID}",
+							"raw": "{{admin_url}}/accounts/{{accountID}}",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
 								"accounts",
-								"{ACCOUNTID}"
+								"{{accountID}}"
 							],
 							"query": [
 								{
@@ -2460,24 +2496,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"application\": \"string\",\r\n    \"languageCode\": \"string\",\r\n    \"workspace\": \"string\",\r\n    \"mobileAppName\": \"string\",\r\n    \"mobileAppNameLong\": \"string\",\r\n    \"type\": \"user\",\r\n    \"redirect_uri\": \"string\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{admin_url}}/{{accountID}}}/users/{userId}/welcome",
+							"raw": "{{admin_url}}/accounts/{{accountID}}}/users/{{userId}}/welcome",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
+								"accounts",
 								"{{accountID}}}",
 								"users",
-								"{userId}",
+								"{{userId}}",
 								"welcome"
 							]
 						}
@@ -2505,13 +2533,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{admin_url}}/accounts/{accountId}/welcome",
+							"raw": "{{admin_url}}/accounts/{{accountID}}/welcome",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
 								"accounts",
-								"{accountId}",
+								"{{accountID}}",
 								"welcome"
 							]
 						}
@@ -2539,13 +2567,13 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "{{admin_url}}/users/f4bb88bc-8c90-4711-ac79-4b33573aaff9/photo",
+							"raw": "{{admin_url}}/users/{{userId}}/photo",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
 								"users",
-								"f4bb88bc-8c90-4711-ac79-4b33573aaff9",
+								"{{userId}}",
 								"photo"
 							]
 						}
@@ -2564,13 +2592,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{admin_url}}/users/{userId}/photo",
+							"raw": "{{admin_url}}/users/{{userId}}/photo",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
 								"users",
-								"{userId}",
+								"{{userId}}",
 								"photo"
 							]
 						}
@@ -2593,15 +2621,15 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "{{admin_url}}/accounts/{accountID}/users/{userId}/photo",
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/{{userId}}/photo",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
 								"accounts",
-								"{accountID}",
+								"{{accountID}}",
 								"users",
-								"{userId}",
+								"{{userId}}",
 								"photo"
 							]
 						}
@@ -2620,15 +2648,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{admin_url}}/accounts/{accountID}/users/{userId}/photo",
+							"raw": "{{admin_url}}/accounts/{{accountID}}/users/{{userId}}/photo",
 							"host": [
 								"{{admin_url}}"
 							],
 							"path": [
 								"accounts",
-								"{accountID}",
+								"{{accountID}}",
 								"users",
-								"{userId}",
+								"{{userId}}",
 								"photo"
 							]
 						}
@@ -2810,7 +2838,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{admin_url}}/accounts/{{accountID}}/clients/{clientID}",
+							"raw": "{{admin_url}}/accounts/{{accountID}}/clients/{{clientId}}",
 							"host": [
 								"{{admin_url}}"
 							],
@@ -2818,7 +2846,7 @@
 								"accounts",
 								"{{accountID}}",
 								"clients",
-								"{clientID}"
+								"{{clientId}}"
 							]
 						}
 					},

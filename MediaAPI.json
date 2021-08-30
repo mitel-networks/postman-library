@@ -63,13 +63,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/calls/{callID}",
+							"raw": "{{media_url}}/calls/{{callId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"calls",
-								"{callID}"
+								"{{callId}}"
 							]
 						}
 					},
@@ -128,13 +128,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/calls/{callID}",
+							"raw": "{{media_url}}/calls/{{callId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"calls",
-								"{callID}"
+								"{{callId}}"
 							]
 						}
 					},
@@ -152,13 +152,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/calls/{callID}",
+							"raw": "{{media_url}}/calls/{{callId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"calls",
-								"{callID}"
+								"{{callId}}"
 							]
 						}
 					},
@@ -225,13 +225,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/calls/{callID}/records",
+							"raw": "{{media_url}}/calls/{{callId}}/records",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"calls",
-								"{callID}",
+								"{{callId}}",
 								"records"
 							]
 						}
@@ -292,13 +292,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/calls/{callID}/records",
+							"raw": "{{media_url}}/calls/{{callId}}/records",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"calls",
-								"{callID}",
+								"{{callId}}",
 								"records"
 							]
 						}
@@ -322,13 +322,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/conferences/{conferenceID}",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceID}"
+								"{{conferenceId}}"
 							],
 							"query": [
 								{
@@ -415,13 +415,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/users/{userID}/conferences",
+							"raw": "{{media_url}}/users/{{userId}}/conferences",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"users",
-								"{userID}",
+								"{{userId}}",
 								"conferences"
 							],
 							"query": [
@@ -513,13 +513,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/conferences/{conferenceID}",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceID}"
+								"{{conferenceId}}"
 							]
 						}
 					},
@@ -546,13 +546,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/conferences/{conferenceID}",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceID}"
+								"{{conferenceId}}"
 							]
 						}
 					},
@@ -570,13 +570,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/conferences/{conferenceID}",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceID}"
+								"{{conferenceId}}"
 							]
 						}
 					},
@@ -594,13 +594,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/users/{userID}/attendances",
+							"raw": "{{media_url}}/users/{{userId}}/attendances",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"users",
-								"{userID}",
+								"{{userId}}",
 								"attendances"
 							],
 							"query": [
@@ -662,15 +662,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/conferences/{conferenceId}/participants/{participantId}",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceId}",
+								"{{conferenceId}}",
 								"participants",
-								"{participantId}"
+								"{{participantId}}"
 							]
 						}
 					},
@@ -688,13 +688,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/conferences/{conferenceId}/participants",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceId}",
+								"{{conferenceId}}",
 								"participants"
 							],
 							"query": [
@@ -748,13 +748,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}/conferences/{conferenceId}/participants",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants",
 							"host": [
-								"{{media_url}"
+								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceId}",
+								"{{conferenceId}}",
 								"participants"
 							]
 						}
@@ -782,15 +782,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}/conferences/{conferenceId}/participants/{participantID}",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}",
 							"host": [
-								"{{media_url}"
+								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceId}",
+								"{{conferenceId}}",
 								"participants",
-								"{participantID}"
+								"{{participantId}}"
 							]
 						}
 					},
@@ -808,15 +808,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}/conferences/{conferenceId}/participants/{participantID}",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}",
 							"host": [
-								"{{media_url}"
+								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceId}",
+								"{{conferenceId}}",
 								"participants",
-								"{participantID}"
+								"{{participantId}}"
 							]
 						}
 					},
@@ -843,15 +843,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/conferences/{conferenceId}/participants/{participantId}/connections",
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}/connections",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"conferences",
-								"{conferenceId}",
+								"{{conferenceId}}",
 								"participants",
-								"{participantId}",
+								"{{participantId}}",
 								"connections"
 							]
 						}
@@ -875,13 +875,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}"
+								"{{endpointId}}"
 							]
 						}
 					},
@@ -908,13 +908,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}"
+								"{{endpointId}}"
 							]
 						}
 					},
@@ -932,13 +932,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/forwardings",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/forwardings",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"forwardings"
 							]
 						}
@@ -966,13 +966,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/forwardings",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/forwardings",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"forwardings"
 							]
 						}
@@ -991,13 +991,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/forwardings",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/forwardings",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"forwardings"
 							]
 						}
@@ -1016,13 +1016,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/pstn-routing",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/pstn-routing",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"pstn-routing"
 							]
 						}
@@ -1041,13 +1041,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/pstn-routing",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/pstn-routing",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"pstn-routing"
 							]
 						}
@@ -1066,13 +1066,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/pstn-routing",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/pstn-routing",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"pstn-routing"
 							]
 						}
@@ -1091,13 +1091,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/calls",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"calls"
 							],
 							"query": [
@@ -1145,13 +1145,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/calls",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"calls"
 							]
 						}
@@ -1170,15 +1170,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/calls/{callId}",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls/{{callId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"calls",
-								"{callId}"
+								"{{callId}}"
 							],
 							"query": [
 								{
@@ -1225,15 +1225,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/endpoints/{endpointId}/calls/{callId}",
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls/{{callId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"endpoints",
-								"{endpointId}",
+								"{{endpointId}}",
 								"calls",
-								"{callId}"
+								"{{callId}}"
 							]
 						}
 					},
@@ -1256,13 +1256,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/dids/{didNumber}",
+							"raw": "{{media_url}}/dids/{{didNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"dids",
-								"{didNumber}"
+								"{{didNumber}}"
 							]
 						}
 					},
@@ -1344,13 +1344,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/dids/{didNumber}",
+							"raw": "{{media_url}}/dids/{{didNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"dids",
-								"{didNumber}"
+								"{{didNumber}}"
 							]
 						}
 					},
@@ -1368,13 +1368,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/dids/{didNumber}",
+							"raw": "{{media_url}}/dids/{{didNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"dids",
-								"{didNumber}"
+								"{{didNumber}}"
 							]
 						}
 					},
@@ -1397,13 +1397,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/extensions/{ExtensionNumber}",
+							"raw": "{{media_url}}/extensions/{{ExtensionNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"extensions",
-								"{ExtensionNumber}"
+								"{{ExtensionNumber}}"
 							]
 						}
 					},
@@ -1499,13 +1499,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/extensions/{ExtensionNumber}",
+							"raw": "{{media_url}}/extensions/{{ExtensionNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"extensions",
-								"{ExtensionNumber}"
+								"{{ExtensionNumber}}"
 							]
 						}
 					},
@@ -1523,13 +1523,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/extensions/{ExtensionNumber}",
+							"raw": "{{media_url}}/extensions/{{ExtensionNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"extensions",
-								"{ExtensionNumber}"
+								"{{ExtensionNumber}}"
 							]
 						}
 					},
@@ -1601,13 +1601,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/recordings/{recordingID}",
+							"raw": "{{media_url}}/recordings/{{recordingId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"recordings",
-								"{recordingID}"
+								"{{recordingId}}"
 							],
 							"query": [
 								{
@@ -1642,13 +1642,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/recordings/{recordingID}",
+							"raw": "{{media_url}}/recordings/{{recordingId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"recordings",
-								"{recordingID}"
+								"{{recordingId}}"
 							]
 						}
 					},
@@ -1666,13 +1666,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/recordings/{recordingID}",
+							"raw": "{{media_url}}/recordings/{{recordingId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"recordings",
-								"{recordingID}"
+								"{{recordingId}}"
 							]
 						}
 					},
@@ -1744,13 +1744,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/prompts/{promptID}",
+							"raw": "{{media_url}}/prompts/{{promptId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"prompts",
-								"{promptID}"
+								"{{promptId}}"
 							]
 						}
 					},
@@ -1804,13 +1804,13 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "{{media_url}}/prompts/{promptID}",
+							"raw": "{{media_url}}/prompts/{{promptId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"prompts",
-								"{promptID}"
+								"{{promptId}}"
 							]
 						}
 					},
@@ -1828,13 +1828,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/prompts/{promptID}",
+							"raw": "{{media_url}}/prompts/{{promptId}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"prompts",
-								"{promptID}"
+								"{{promptId}}"
 							]
 						}
 					},
@@ -1852,13 +1852,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/prompts/{promptID}/meta",
+							"raw": "{{media_url}}/prompts/{{promptId}}/meta",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"prompts",
-								"{promptID}",
+								"{{promptId}}",
 								"meta"
 							]
 						}
@@ -1882,13 +1882,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/voicemailboxes/{voicemailNumber}",
+							"raw": "{{media_url}}/voicemailboxes/{{voicemailNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"voicemailboxes",
-								"{voicemailNumber}"
+								"{{voicemailNumber}}"
 							]
 						}
 					},
@@ -1961,13 +1961,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/voicemailboxes/{voicemailNumber}",
+							"raw": "{{media_url}}/voicemailboxes/{{voicemailNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"voicemailboxes",
-								"{voicemailNumber}"
+								"{{voicemailNumber}}"
 							]
 						}
 					},
@@ -1985,15 +1985,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/users/{userID}/voicemailboxes/{voicemailNumber}",
+							"raw": "{{media_url}}/users/{{userId}}/voicemailboxes/{{voicemailNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"users",
-								"{userID}",
+								"{{userId}}",
 								"voicemailboxes",
-								"{voicemailNumber}"
+								"{{voicemailNumber}}"
 							]
 						}
 					},
@@ -2011,13 +2011,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/users/{userID}/voicemailboxes",
+							"raw": "{{media_url}}/users/{{userId}}/voicemailboxes",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"users",
-								"{userID}",
+								"{{userId}}",
 								"voicemailboxes"
 							]
 						}
@@ -2045,13 +2045,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{media_url}}/user/{userID}/voicemailboxes",
+							"raw": "{{media_url}}/user/{{userId}}/voicemailboxes",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"user",
-								"{userID}",
+								"{{userId}}",
 								"voicemailboxes"
 							]
 						}
@@ -2070,15 +2070,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{media_url}}/user/{userID}/voicemailboxes/{voicemailNumber}",
+							"raw": "{{media_url}}/user/{{userId}}}/voicemailboxes/{{voicemailNumber}}",
 							"host": [
 								"{{media_url}}"
 							],
 							"path": [
 								"user",
-								"{userID}",
+								"{{userId}}}",
 								"voicemailboxes",
-								"{voicemailNumber}"
+								"{{voicemailNumber}}"
 							]
 						}
 					},

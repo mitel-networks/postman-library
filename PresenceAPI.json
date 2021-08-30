@@ -20,13 +20,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalID}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalID}"
+								"{{principalId}}"
 							]
 						}
 					},
@@ -140,13 +140,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalID}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalID}"
+								"{{principalId}}"
 							]
 						}
 					},
@@ -164,13 +164,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalID}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalID}"
+								"{{principalId}}"
 							]
 						}
 					},
@@ -193,13 +193,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalId}/locations",
+							"raw": "{{presence_url}}/presentities/{{principalId}}/locations",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalId}",
+								"{{principalId}}",
 								"locations"
 							],
 							"query": [
@@ -253,13 +253,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalId}/locations",
+							"raw": "{{presence_url}}/presentities/{{principalId}}/locations",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalId}",
+								"{{principalId}}",
 								"locations"
 							],
 							"query": [
@@ -309,16 +309,16 @@
 							}
 						],
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalId}/categories/{categoryId}/{sourceID}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}/{{sourceID}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalId}",
+								"{{principalId}}",
 								"categories",
-								"{categoryId}",
-								"{sourceID}"
+								"{{categoryId}}",
+								"{{sourceID}}"
 							]
 						}
 					},
@@ -336,15 +336,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalId}/categories/{categoryId}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalId}",
+								"{{principalId}}",
 								"categories",
-								"{categoryId}"
+								"{{categoryId}}"
 							],
 							"query": [
 								{
@@ -397,15 +397,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalId}/categories/{categoryId}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalId}",
+								"{{principalId}}",
 								"categories",
-								"{categoryId}"
+								"{{categoryId}}"
 							]
 						}
 					},
@@ -432,16 +432,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalId}/categories/{categoryId}/{sourceID}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}/{{sourceId}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalId}",
+								"{{principalId}}",
 								"categories",
-								"{categoryId}",
-								"{sourceID}"
+								"{{categoryId}}",
+								"{{sourceId}}"
 							]
 						}
 					},
@@ -459,16 +459,16 @@
 							}
 						],
 						"url": {
-							"raw": "{{presence_url}}/presentities/{principalId}/categories/{categoryId}/{sourceID}",
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}/{{sourceID}}",
 							"host": [
 								"{{presence_url}}"
 							],
 							"path": [
 								"presentities",
-								"{principalId}",
+								"{{principalId}}",
 								"categories",
-								"{categoryId}",
-								"{sourceID}"
+								"{{categoryId}}",
+								"{{sourceID}}"
 							]
 						}
 					},

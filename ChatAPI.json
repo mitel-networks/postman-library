@@ -20,13 +20,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}",
+							"raw": "{{chat_url}}/conversations/{{conversationID}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}"
+								"{{conversationID}}"
 							]
 						}
 					},
@@ -164,13 +164,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}"
+								"{{conversationId}}"
 							]
 						}
 					},
@@ -188,13 +188,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}"
+								"{{conversationId}}"
 							]
 						}
 					},
@@ -221,13 +221,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/transcripts",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/transcripts",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"transcripts"
 							]
 						}
@@ -251,15 +251,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages/{{messageId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}",
+								"{{conversationId}}",
 								"messages",
-								"{messageID}"
+								"{{messageId}}"
 							],
 							"query": [
 								{
@@ -375,13 +375,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}/messages",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}",
+								"{{conversationId}}",
 								"messages"
 							]
 						}
@@ -409,15 +409,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages/{{messageId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}",
+								"{{conversationId}}",
 								"messages",
-								"{messageID}"
+								"{{messageId}}"
 							]
 						}
 					},
@@ -435,15 +435,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages/{{messageId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}",
+								"{{conversationId}}",
 								"messages",
-								"{messageID}"
+								"{{messageId}}"
 							]
 						}
 					},
@@ -461,15 +461,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationID}/messages/{messageID}/replies",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages/{{messageId}}/replies",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationID}",
+								"{{conversationId}}",
 								"messages",
-								"{messageID}",
+								"{{messageId}}",
 								"replies"
 							],
 							"query": [
@@ -531,15 +531,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/participants/{{participantID}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"participants",
-								"{participantID}"
+								"{{participantID}}"
 							]
 						}
 					},
@@ -557,13 +557,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/participants",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/participants",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"participants"
 							],
 							"query": [
@@ -629,13 +629,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/participants",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/participants",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"participants"
 							]
 						}
@@ -663,15 +663,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/participants/{{participantId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"participants",
-								"{participantID}"
+								"{{participantId}}"
 							]
 						}
 					},
@@ -689,15 +689,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/participants/{{participantId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"participants",
-								"{participantID}"
+								"{{participantId}}"
 							]
 						}
 					},
@@ -724,15 +724,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/participants/{participantID}/typing",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/participants/{{participantId}}/typing",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"participants",
-								"{participantID}",
+								"{{participantId}}",
 								"typing"
 							]
 						}
@@ -756,15 +756,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/attachments/{attachmentID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/attachments/{{attachmentId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"attachments",
-								"{attachmentID}"
+								"{{attachmentId}}"
 							]
 						}
 					},
@@ -782,13 +782,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/attachments",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/attachments",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"attachments"
 							],
 							"query": [
@@ -855,15 +855,15 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/attachments/{attachmentID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/attachments/{{attachmentId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"attachments",
-								"{attachmentID}"
+								"{{attachmentId}}"
 							]
 						}
 					},
@@ -881,15 +881,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/attachments/{attachmentID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/attachments/{{attachmentId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"attachments",
-								"{attachmentID}"
+								"{{attachmentId}}"
 							]
 						}
 					},
@@ -940,16 +940,16 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions/{reactionID}",
+							"raw": "{{chat_url}}conversations/{{conversationId}}/messages/{{messageId}}/reactions/{{reactionId}}",
 							"host": [
 								"{{chat_url}}conversations"
 							],
 							"path": [
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"reactions",
-								"{reactionID}"
+								"{{reactionId}}"
 							]
 						}
 					},
@@ -967,14 +967,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions",
+							"raw": "{{chat_url}}conversations/{{conversationId}}/messages/{{messageId}}/reactions",
 							"host": [
 								"{{chat_url}}conversations"
 							],
 							"path": [
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"reactions"
 							],
 							"query": [
@@ -1040,14 +1040,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions",
+							"raw": "{{chat_url}}conversations/{{conversationId}}/messages/{{messageId}}/reactions",
 							"host": [
 								"{{chat_url}}conversations"
 							],
 							"path": [
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"reactions"
 							]
 						}
@@ -1075,16 +1075,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions/{reactionID}",
+							"raw": "{{chat_url}}conversations/{{conversationId}}/messages/{{messageId}}/reactions/{{reactionId}}",
 							"host": [
 								"{{chat_url}}conversations"
 							],
 							"path": [
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"reactions",
-								"{reactionID}"
+								"{{reactionId}}"
 							]
 						}
 					},
@@ -1102,16 +1102,16 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}conversations/{conversationId}/messages/{messageId}/reactions/{reactionID}",
+							"raw": "{{chat_url}}conversations/{{conversationId}}/messages/{{messageId}}/reactions/{{reactionId}}",
 							"host": [
 								"{{chat_url}}conversations"
 							],
 							"path": [
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"reactions",
-								"{reactionID}"
+								"{{reactionId}}"
 							]
 						}
 					},
@@ -1134,15 +1134,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/messages/{messageId}/statuses",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages/{{messageId}}/statuses",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"statuses"
 							],
 							"query": [
@@ -1199,17 +1199,17 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/messages/{messageId}/statuses/{participantID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages/{{messageId}}/statuses/{{participantId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"statuses",
-								"{participantID}"
+								"{{participantId}}"
 							]
 						}
 					},
@@ -1236,17 +1236,17 @@
 							}
 						},
 						"url": {
-							"raw": "{{chat_url}}/conversations/{conversationId}/messages/{messageId}/statuses/{participantID}",
+							"raw": "{{chat_url}}/conversations/{{conversationId}}/messages/{{messageId}}/statuses/{{participantId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"conversations",
-								"{conversationId}",
+								"{{conversationId}}",
 								"messages",
-								"{messageId}",
+								"{{messageId}}",
 								"statuses",
-								"{participantID}"
+								"{{participantId}}"
 							]
 						}
 					},
@@ -1269,15 +1269,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/users/{userId}/conversations/{conversationID}",
+							"raw": "{{chat_url}}/users/{{userId}}/conversations/{{conversationId}}",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"users",
-								"{userId}",
+								"{{userId}}",
 								"conversations",
-								"{conversationID}"
+								"{{conversationId}}"
 							],
 							"query": [
 								{
@@ -1321,13 +1321,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/users/{userId}/conversations",
+							"raw": "{{chat_url}}/users/{{userId}}/conversations",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"users",
-								"{userId}",
+								"{{userId}}",
 								"conversations"
 							],
 							"query": [
@@ -1390,13 +1390,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{chat_url}}/users/{userId}/mentions",
+							"raw": "{{chat_url}}/users/{{userId}}/mentions",
 							"host": [
 								"{{chat_url}}"
 							],
 							"path": [
 								"users",
-								"{userId}",
+								"{{userId}}",
 								"mentions"
 							],
 							"query": [

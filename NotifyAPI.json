@@ -20,13 +20,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{notify_url}}/subscriptions/{subscriptionID}",
+							"raw": "{{notify_url}}/subscriptions/{{subscriptionId}}",
 							"host": [
 								"{{notify_url}}"
 							],
 							"path": [
 								"subscriptions",
-								"{subscriptionID}"
+								"{{subscriptionId}}"
 							]
 						}
 					},
@@ -157,13 +157,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{notify_url}}/subscriptions/{subscriptionID}",
+							"raw": "{{notify_url}}/subscriptions/{{subscriptionId}}",
 							"host": [
 								"{{notify_url}}"
 							],
 							"path": [
 								"subscriptions",
-								"{subscriptionID}"
+								"{{subscriptionId}}"
 							]
 						}
 					},
