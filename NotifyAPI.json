@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "1e6e9fa9-1e12-4261-8f24-e257af89fa3e",
 		"name": "Notifications",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10691107"
 	},
 	"item": [
 		{

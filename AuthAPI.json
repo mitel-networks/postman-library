@@ -2,14 +2,112 @@
 	"info": {
 		"_postman_id": "c50c014b-fef6-440b-b328-1cbf7e62d745",
 		"name": "Authentication",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10691107"
 	},
 	"item": [
 		{
-			"name": "Tokens",
+			"name": "OpenID Connect",
 			"item": [
 				{
-					"name": "User Token",
+					"name": "Authorization Code - OpenID Connect",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"authorization_code\", jsonData[\"code\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{applicationId}}",
+									"type": "text"
+								},
+								{
+									"key": "response_type",
+									"value": "code",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "account_id",
+									"value": "{{accountID}}",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "code_challenge",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "id_token_hint",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "target_client_id",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_url}}/authorize",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Token - OpenID Connect",
 					"event": [
 						{
 							"listen": "test",
@@ -34,23 +132,24 @@
 							"urlencoded": [
 								{
 									"key": "grant_type",
-									"value": "password",
+									"value": "authorization_code",
 									"type": "text"
 								},
 								{
-									"key": "username",
-									"value": "{{username}}",
+									"key": "code",
+									"value": "{{authorization_code}}",
 									"type": "text"
 								},
 								{
-									"key": "password",
-									"value": "{{password}}",
+									"key": "client_id",
+									"value": "{{applicationId}}",
 									"type": "text"
 								},
 								{
-									"key": "account_id",
-									"value": "{{accountID}}",
-									"type": "text"
+									"key": "code_verifier",
+									"value": "",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
@@ -65,7 +164,12 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "OAuth Tokens",
+			"item": [
 				{
 					"name": "Client Token",
 					"event": [
@@ -233,65 +337,6 @@
 					"response": []
 				},
 				{
-					"name": "OpenID Connect Token",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"let jsonData = pm.response.json();\r",
-									"pm.environment.set(\"access_token\", jsonData[\"access_token\"]);\r",
-									"pm.environment.set(\"refresh_token\", jsonData[\"refresh_token\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "grant_type",
-									"value": "authorization_code",
-									"type": "text"
-								},
-								{
-									"key": "code",
-									"value": "{{authorization_code}}",
-									"type": "text"
-								},
-								{
-									"key": "client_id",
-									"value": "{{applicationId}}",
-									"type": "text"
-								},
-								{
-									"key": "code_verifier",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "{{auth_url}}/token",
-							"host": [
-								"{{auth_url}}"
-							],
-							"path": [
-								"token"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Refresh Token",
 					"event": [
 						{
@@ -338,21 +383,17 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "OpenID Connect (Authorize)",
-			"item": [
+				},
 				{
-					"name": "Create Authorization Code",
+					"name": "User Token - Testing Only",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
 									"let jsonData = pm.response.json();\r",
-									"pm.environment.set(\"authorization_code\", jsonData[\"code\"]);"
+									"pm.environment.set(\"access_token\", jsonData[\"access_token\"]);\r",
+									"pm.environment.set(\"refresh_token\", jsonData[\"refresh_token\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -363,24 +404,13 @@
 							"type": "noauth"
 						},
 						"method": "POST",
-						"header": [
-							{
-								"key": "x-mitel-app",
-								"value": "{{x-mitel-app}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "client_id",
-									"value": "{{applicationId}}",
-									"type": "text"
-								},
-								{
-									"key": "response_type",
-									"value": "code",
+									"key": "grant_type",
+									"value": "password",
 									"type": "text"
 								},
 								{
@@ -397,45 +427,56 @@
 									"key": "account_id",
 									"value": "{{accountID}}",
 									"type": "text"
-								},
-								{
-									"key": "redirect_uri",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "code_challenge_method",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "code_challenge",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "id_token_hint",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "target_client_id",
-									"value": "",
-									"type": "text",
-									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "{{auth_url}}/authorize",
+							"raw": "{{auth_url}}/token",
 							"host": [
 								"{{auth_url}}"
 							],
 							"path": [
-								"authorize"
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"access_token\", jsonData[\"access_token\"]);\r",
+									"pm.environment.set(\"refresh_token\", jsonData[\"refresh_token\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_url}}/token",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"token"
 							]
 						}
 					},
