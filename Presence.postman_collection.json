@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "a78ba6d0-f774-4e98-a34e-791f4ced4752",
+		"name": "Presence",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10691107"
+	},
+	"item": [
+		{
+			"name": "Presentity",
+			"item": [
+				{
+					"name": "A Presentity",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Presentities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{presence_url}}/presentities",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "items",
+									"value": null,
+									"description": "Comma separated list of principal IDs",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Presentity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"principalId\": \"string\",\r\n    \"type\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{presence_url}}/presentities",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Presentity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Available\",\r\n    \"reason\": \"string\",\r\n    \"extended\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Presentity",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "Presentity Location Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}/locations",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Presentity Location Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"deviceId\": \"string\",\r\n    \"latitude\": \"string\",\r\n    \"longitude\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}/locations",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Source",
+			"item": [
+				{
+					"name": "A Source",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}/{{sourceID}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}",
+								"categories",
+								"{{categoryId}}",
+								"{{sourceID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sources",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}",
+								"categories",
+								"{{categoryId}}"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Key for skipping items",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Source",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sourceId\": \"string\",\r\n    \"presence\": {\r\n        \"status\": \"Available\",\r\n        \"reason\": \"string\",\r\n        \"extended\": {}\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}",
+								"categories",
+								"{{categoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Source",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Available\",\r\n    \"reason\": \"string\",\r\n    \"extended\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}/{{sourceId}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}",
+								"categories",
+								"{{categoryId}}",
+								"{{sourceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Source",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{presence_url}}/presentities/{{principalId}}/categories/{{categoryId}}/{{sourceID}}",
+							"host": [
+								"{{presence_url}}"
+							],
+							"path": [
+								"presentities",
+								"{{principalId}}",
+								"categories",
+								"{{categoryId}}",
+								"{{sourceID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Specification",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{presence_url}}/_spec",
+					"host": [
+						"{{presence_url}}"
+					],
+					"path": [
+						"_spec"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

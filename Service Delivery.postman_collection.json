@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "d13e9012-fd2b-427c-9ece-1220269757f0",
+		"name": "Service Delivery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10691107"
+	},
+	"item": [
+		{
+			"name": "Agreement",
+			"item": [
+				{
+					"name": "Agreements",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servicedelivery_url}}/agreements",
+							"host": [
+								"{{servicedelivery_url}}"
+							],
+							"path": [
+								"agreements"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agreement by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servicedelivery_url}}/agreements/{{id}}",
+							"host": [
+								"{{servicedelivery_url}}"
+							],
+							"path": [
+								"agreements",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servicedelivery_url}}/products",
+							"host": [
+								"{{servicedelivery_url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servicedelivery_url}}/products/{{id}}",
+							"host": [
+								"{{servicedelivery_url}}"
+							],
+							"path": [
+								"products",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Party",
+			"item": [
+				{
+					"name": "Organizations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servicedelivery_url}}/organizations",
+							"host": [
+								"{{servicedelivery_url}}"
+							],
+							"path": [
+								"organizations"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Organization by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servicedelivery_url}}/organizations/{{id}}",
+							"host": [
+								"{{servicedelivery_url}}"
+							],
+							"path": [
+								"organizations",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Specification",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{servicedelivery_url}}/_spec",
+					"host": [
+						"{{servicedelivery_url}}"
+					],
+					"path": [
+						"_spec"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

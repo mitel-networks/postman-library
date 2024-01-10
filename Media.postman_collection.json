@@ -1,0 +1,1275 @@
+{
+	"info": {
+		"_postman_id": "22732974-ab5d-416b-a377-6a781d88f929",
+		"name": "Media",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10691107"
+	},
+	"item": [
+		{
+			"name": "Call History",
+			"item": [
+				{
+					"name": "Call Records",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/calls/records",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"calls",
+								"records"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": "",
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": "",
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": "",
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Call Record",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/calls/{{callId}}/records",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"calls",
+								"{{callId}}",
+								"records"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Call History Records",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hide\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/calls/records",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"calls",
+								"records"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Call Record",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hide\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/calls/{{callId}}/records",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"calls",
+								"{{callId}}",
+								"records"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Conference",
+			"item": [
+				{
+					"name": "A Conference",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Odata expand param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conferences in My Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/conferences",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Continuation token from previous query for paging",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Odata expand param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conferences for User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/users/{{userId}}/conferences",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}",
+								"conferences"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Odata expand param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Conference",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"string\",\r\n    \"name\": \"string\",\r\n    \"type\": \"inviteOnly\",\r\n    \"lobbyPolicy\": \"pstnLobby\",\r\n    \"accessCodeLength\": 0,\r\n    \"expiryDateTime\": \"2019-08-24T14:15:22Z\",\r\n    \"participants\": [\r\n        {}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/conferences",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Perform Action on Conference",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"end\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Conference",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"lobbyPolicy\": \"pstnLobby\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Conference",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Meeting Attendance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/users/{{userId}}/attendances",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}",
+								"attendances"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Continuation token from previous query for paging",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": null,
+									"description": "Odata expand param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Participant",
+			"item": [
+				{
+					"name": "A Participant",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}",
+								"participants",
+								"{{participantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Participants of Conference",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}",
+								"participants"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$skipToken",
+									"value": null,
+									"description": "Continuation token from previous query for paging",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Participant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"participantId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}",
+								"participants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Participant",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"associatedParticipantId\": \"string\",\r\n    \"muted\": true,\r\n    \"action\": \"leave\",\r\n    \"onetimeAcceptance\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}",
+								"participants",
+								"{{participantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove A Participant",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}",
+								"participants",
+								"{{participantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Connection Details for Participant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"string\",\r\n    \"mediaUrl\": \"string\",\r\n    \"signalingUrl\": \"string\",\r\n    \"turnUrl\": \"string\",\r\n    \"screenDataUrl\": \"string\",\r\n    \"screenSharingUrl\": \"string\",\r\n    \"screenViewingUrl\": \"string\",\r\n    \"externalId\": \"string\",\r\n    \"externalConferenceId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/conferences/{{conferenceId}}/participants/{{participantId}}/connections",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"conferences",
+								"{{conferenceId}}",
+								"participants",
+								"{{participantId}}",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoint",
+			"item": [
+				{
+					"name": "An Endpoint State",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change an Endpoint State",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"dnd\",\r\n    \"userAvailability\": \"available\",\r\n    \"enabled\": false,\r\n    \"timeoutMs\": \"6000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call Forwarding Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/forwardings",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"forwardings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Call Forwarding Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"always\",\r\n    \"enabled\": false,\r\n    \"destination\": \"string\",\r\n    \"type\": \"internal\",\r\n    \"timeoutMs\": \"6000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/forwardings",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"forwardings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call Forwarding Details",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/forwardings",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"forwardings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PSTN Routing Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/pstn-routing",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"pstn-routing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update PSTN Routing Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/pstn-routing",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"pstn-routing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PSTN Routing",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/pstn-routing",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"pstn-routing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Active Calls",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"calls"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make a Call",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": \"string\",\r\n    \"fromName\": \"string\",\r\n    \"to\": \"string\",\r\n    \"record\": false,\r\n    \"timeoutMs\": \"6000\",\r\n    \"successUrl\": \"string\",\r\n    \"failureUrl\": \"string\",\r\n    \"associatedCallId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"calls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "An Active Call State",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls/{{callId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"calls",
+								"{{callId}}"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Active Call State",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"answer\",\r\n    \"args\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/endpoints/{{endpointId}}/calls/{{callId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"endpoints",
+								"{{endpointId}}",
+								"calls",
+								"{{callId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recording",
+			"item": [
+				{
+					"name": "All Recordings in Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/recordings",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"recordings"
+							],
+							"query": [
+								{
+									"key": "$skip",
+									"value": null,
+									"description": "Number of items to skip",
+									"disabled": true
+								},
+								{
+									"key": "$top",
+									"value": null,
+									"description": "Number of items to include",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								},
+								{
+									"key": "$orderby",
+									"value": null,
+									"description": "Odata filter param",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recording Metadata and File",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/recordings/{{recordingId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"recordings",
+								"{{recordingId}}"
+							],
+							"query": [
+								{
+									"key": "media-format",
+									"value": null,
+									"description": "Format of the file in the embedded media link.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recording Metadata",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"label\": \"string\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{media_url}}/recordings/{{recordingId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"recordings",
+								"{{recordingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recording",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-mitel-app",
+								"value": "{{x-mitel-app}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{media_url}}/recordings/{{recordingId}}",
+							"host": [
+								"{{media_url}}"
+							],
+							"path": [
+								"recordings",
+								"{{recordingId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Specification",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{media_url}}/_spec",
+					"host": [
+						"{{media_url}}"
+					],
+					"path": [
+						"_spec"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
